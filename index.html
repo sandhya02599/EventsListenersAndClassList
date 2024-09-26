@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+    <style>
+        
+form {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 91%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.user-details {
+    width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #e6f7ff;
+    border: 1px solid #a3d1ff;
+    border-radius: 10px;
+}
+
+.user-details h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+#myColors{
+    width: 200px;
+    font-size: large;
+    margin-left: 300px;
+}
+#box{
+    width: 200px;
+    height: 200px;
+    border: 1px solid gray;
+    margin-left: 500px;
+}
+
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+
+
+        <button type="submit">Submit</button>
+    </form>
+    <div class="user-details">
+        <h3>User Details:</h3>
+        <h2 id="name" style="color: blue;"></h2>
+    </div>
+    <select id="myColors">
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="pink">Pink</option>
+    </select>
+    <div id="box">
+
+    </div>
+    
+    <script>
+        const mainForm = document.getElementById("myForm")
+        const userName = document.getElementById("nameInput")
+        const inputName = document.getElementById("name")
+
+        mainForm.addEventListener('submit', function(event){
+            event.preventDefault()
+
+
+            const myUserName = userName.value
+
+            inputName.textContent = myUserName
+
+            mainForm.reset()
+        })
+
+        const userInput = document.getElementById("nameInput")
+
+        userInput.addEventListener("focus", function(event){
+            event.target.style.background = 'pink'
+        })
+
+        userInput.addEventListener("blur", function(event){
+            event.target.style.background = ''
+        })
+
+    
+
+
+        const myColors = document.getElementById("myColors")
+    const myNewBox = document.getElementById("box")
+    
+    myColors.addEventListener("change", function() {
+        myNewBox.style.background = myColors.value
+    })
+    </script>
+</body>
+</html>

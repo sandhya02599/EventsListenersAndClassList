@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classlist</title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #F86624;
+    color: #fff;
+}
+
+.nav-left {
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0 50px;
+    height: 70px;
+    font-size: 1.25rem;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+}
+
+nav li {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+nav ul li:hover {
+    background-color: #1768AC;
+    border-radius: 10px;
+}
+
+nav ul li:active {
+    background-color: #111;
+}
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 70px;
+    left: 0;
+    background-color: #1768AC;
+    color: #fff;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav li {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+}
+
+.sidenav a:hover {
+    background-color: #111;
+}
+
+.sidenav ul li:hover {
+    background-color: rgb(245, 234, 234);
+    color: black;
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="company" class="nav-left" onmouseenter="changeCompany()" onmouseout="normal()">
+                Company
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li class="revenue">Revenue</li>
+                    <li class="sales">Sales</li>
+                    <li class="customers">Customers</li>
+                    <li class="reports">Reports</li>
+                    <li class="settings">Settings</li>
+                </ul>
+            </div>
+            <div class="dark-theme" onclick=darkTheme() ondblclick="lightTheme()">
+                Dark Theme
+            </div>
+            <div id="loginBtn">
+                Login
+            </div>
+            <!-- <button id="add-border">Add Border</button> -->
+             <button id="open">Open Sidebar</button>
+             <button id="close">Close Sidebar</button>
+        </nav>
+
+    </header>
+    <div class="sidenav">
+        <ul>
+            <li>Dashboard</li>
+            <li class="revenue">Revenue</li>
+            <li class="sales">Sales</li>
+            <li class="customers">Customers</li>
+            <li class="reports">Reports</li>
+            <li class="meetings">Meetings</li>
+            <li class="events">Events</li>
+            <li class="settings">Settings</li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        const openNav = document.getElementById("open");
+        const closeNav = document.getElementById("close");
+    
+        const sideNavbar = document.querySelector(".sidenav");
+    
+        closeNav.addEventListener('click', closeSideNavBar);
+    
+        function closeSideNavBar() {
+            sideNavbar.style.display = 'none';
+        }
+    
+        openNav.addEventListener('click', openSideNavBar);
+    
+        function openSideNavBar() {
+            sideNavbar.style.display = 'block';
+        }
+    </script>
+    
